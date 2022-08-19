@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <title>d0j1a_1701's API Reference</title>
+  <link rel="icon" href="https://cdn.luogu.com.cn/upload/image_hosting/bod7onrq.png" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://lib.baomitu.com/docsify/4.12.2/themes/vue.css">
+  <script src="https://lib.baomitu.com/limonte-sweetalert2/11.4.26/sweetalert2.all.js"></script>
+  <script>
+    //d0j1a_1701 ServiceWorkerInstaller v1.1
+    navigator.serviceWorker.register(`/sw.js?time=${new Date().getTime()}`)
+      .then(async reg => {
+        if (window.localStorage.getItem('install') != 'true') {
+          window.localStorage.setItem('install', 'true');
+          Swal.fire({
+            title: 'Service Worker已经安装完成',
+            html: '页面即将强制刷新，这种情况只会在第一次访问本网站时出现。',
+            timer: 1000,
+            timerProgressBar: true,
+            didOpen: () => {
+              Swal.showLoading()
+            },
+            willClose: () => {
+              window.location.search = `?time=${new Date().getTime()}`
+            }
+          })
+        }
+      }).catch(err => {
+        console.error(err);
+        return;
+      });
+  </script>
+</head>
+
+<body>
+  <nav>
+    <a href="#/">API Reference</a>
+    <a href="https://d0j1a1701.cc">d0j1a_1701的主页</a>
+  </nav>
+  <div id="app"></div>
+  <script>
+    window.$docsify = {
+      loadNavbar: true,
+      coverpage: true
+    }
+  </script>
+  <!-- Docsify v4 -->
+  <script src="https://lib.baomitu.com/docsify/4.12.2/docsify.js"></script>
+</body>
+
+</html>
