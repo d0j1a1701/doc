@@ -6,7 +6,6 @@
 > [d0j1a_1701的主页](https://d0j1a1701.cc)
 
 ## Key-Value 存储器
-> Base-URL: https://kv.d0j1a1701.cc
 
 可在短时间存储一个键值对，类似于C++的`std::map<string,string>`。
 
@@ -14,7 +13,7 @@
 
 ### 读取
 
-> URL: `/{key}`
+> URL: `api.d0j1a1701.cc/kv/{key}`
 > 
 > method: `GET`
 
@@ -22,7 +21,7 @@
 - 若失败，返回404，并返回错误信息`Value not found`。
 
 ```javascript
-fetch(`https://kv.d0j1a1701.cc/${key}`)
+fetch(`https://api.d0j1a1701.cc/kv/${key}`)
 	.then(resp => resp.text())
 	.then(res => console.log(res))
 	.catch(err => console.error(err));
@@ -30,7 +29,7 @@ fetch(`https://kv.d0j1a1701.cc/${key}`)
 
 ### 写入
 
-> URL: `/{key}`
+> URL: `api.d0j1a1701.cc/kv/{key}`
 >
 > method: `POST`
 
@@ -38,7 +37,7 @@ fetch(`https://kv.d0j1a1701.cc/${key}`)
 - 如果这个`key`已被使用，则覆盖原值。
 
 ```javascript
-fetch(`https://kv.d0j1a1701.cc/${key}`, {
+fetch(`https://api.d0j1a1701.cc/kv/${key}`, {
 	method: "POST",
 	body: value
 })  .then(resp => resp.text())
@@ -50,26 +49,18 @@ fetch(`https://kv.d0j1a1701.cc/${key}`, {
 
 ### 普通
 
-> Base-URL: https://random.d0j1a1701.cc
+> Base-URL: https://api.d0j1a1701.cc/random/
 
 返回[dajia-1701/randpic-imghost](https://github.com/dajia-1701/randpic-imghost)中随机的一张图片。
 
-- 禁用缓存(`Cache-Control: no-store`)`
-- 图片格式为webp(`Content-type: image/webp`),
-
-> 虽然`Headers`里禁用缓存，但同一页面下放入多个随机图仍然可能会被缓存（全部图片都是一样的），因此建议使用JS在每张图片地址后加入随机数做参数强制取消缓存。
+- 禁用缓存(`Cache-Control: no-store`)
+- 图片格式为webp(`Content-type: image/webp`)
+- 加入`?cover=true`参数可限制图片宽度为720px，可作为博客封面
 
 效果如下:
 
-![](https://random.d0j1a1701.cc)
+![](https://api.d0j1a1701.cc/random/)
 
-### 封面
-
-> Base-URL: https://bg.d0j1a1701.cc
-
-同 https://random.d0j1a1701.cc 但图片经过剪切可作为[博客](https://www.d0j1a1701.cc)封面。
-
-![](https://bg.d0j1a1701.cc)
 
 ## Luogu 个人资料卡
 
