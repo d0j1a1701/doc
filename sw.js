@@ -1,6 +1,6 @@
-//d0j1a_1701 IntelligentCache&CDN sw.js Ver 1.4
+//d0j1a_1701 IntelligentCache&CDN sw.js Ver 1.5
 const CACHE_NAME = 'd0j1a1701Cache';
-let cachelist = [], whitelist = ['localhost', 'kv.d0j1a1701.cc', 'bg.d0j1a1701.cc', 'random.d0j1a1701.cc'];
+let cachelist = [], whitelist = ['localhost', 'api.d0j1a1701.cc'];
 self.addEventListener('install', async function (installEvent) {
     self.skipWaiting();
     console.info('[Service Worker] Service Worker加载成功');
@@ -87,11 +87,8 @@ const fetchFromCache = function (req) {
             resolve(fetch(req));
             return;
         }
-        if (req.url.split('/')[2].indexOf('localhost') != -1) {
-            resolve(fetch(req));
-            return;
-        }
-        if (whitelist.indexOf(req.url.split('/')[2]) != -1) {
+        let url = new URL(req.url), hostname = url.hostname;
+        if (whitelist.indexOf(hostname) != -1) {
             resolve(fetch(req));
             return;
         }
