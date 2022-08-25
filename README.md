@@ -51,7 +51,7 @@ fetch(`https://api.d0j1a1701.cc/kv/${key}`, {
 
 > Base-URL: https://api.d0j1a1701.cc/random/
 
-返回[dajia-1701/randpic-imghost](https://github.com/dajia-1701/randpic-imghost)中随机的一张图片。
+返回[d0j1a1701/randpic-imghost](https://github.com/d0j1a1701/randpic-imghost)中随机的一张图片。
 
 - 禁用缓存(`Cache-Control: no-store`)
 - 图片格式为webp(`Content-type: image/webp`)
